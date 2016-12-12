@@ -1,4 +1,14 @@
 # configs for linux console
+## screenshots
+
+vim with tmux:
+
+![vim](https://github.com/shiftc/misc_config/blob/master/screenshots/vim-screen.png?raw=true)
+
+cmdline:
+
+![cmd](https://github.com/shiftc/misc_config/blob/master/screenshots/cmdline-screen.png?raw=true)
+
 ## Installation
 
 ### install prerequisites
