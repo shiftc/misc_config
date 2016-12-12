@@ -30,13 +30,13 @@ MYZSH_RC="$HOME/.zshrc"
 MYTIG_RC="$HOME/.tigrc"
 MYTIG_THEME="$HOME/.tigrc.theme"
 MYTMUX_CONF="$HOME/.tmux.conf"
-MYGIT_CONF="$HOME/.gitconfg"
+MYGIT_CONF="$HOME/.gitconfig"
 
 lnif $CURRENT_DIR/zshrc $MYZSH_RC
 lnif $CURRENT_DIR/tigrc $MYTIG_RC
 lnif $CURRENT_DIR/tigrc.theme $MYTIG_THEME
 lnif $CURRENT_DIR/tmux.conf $MYTMUX_CONF
-lnif $CURRENT_DIR/gitconfg $MYTGIT_CONF
+lnif $CURRENT_DIR/gitconfig $MYTGIT_CONF
 
 # If folder isn't exist, then make it
 [ -d $ZSH_CUSTOM/plugins ] || mkdir $ZSH_CUSTOM/plugins
