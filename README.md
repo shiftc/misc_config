@@ -2,6 +2,12 @@
 ## Installation
 
 ### install prerequisites
+vim:
+vim 7.4 above prefered, with lua enabled
+
+refer:
+>[a guide for update vim](https://github.com/shiftc/vim_config/blob/master/update_vim.md)
+
 zsh:
 ```sh
 sudo apt-get install zsh

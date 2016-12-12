@@ -82,4 +82,17 @@ lnif $CURRENT_DIR/tigrc.theme $MYTIG_THEME
 lnif $CURRENT_DIR/tmux.conf $MYTMUX_CONF
 lnif $CURRENT_DIR/gitconfig $MYGIT_CONF
 
-message "Done! Please, reload your terminal."
+MYVIM_DIR="$CURRENT_DIR/vim_config"
+
+if [ -d $MYVIM_DIR ]; then
+  message "vim config exists"
+else
+  message "no vim configs, clone it"
+  git clone https://github.com/shiftc/vim_config.git $MYVIM_DIR
+fi
+
+message "update vimrc/bundle"
+cd $MYVIM_DIR
+sh -c ./install.sh
+
+message "Done! Please reload your terminal."
