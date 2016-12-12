@@ -1,0 +1,26 @@
+From 2305c3a9f40319fb15b3563005e9e0831b6b9f23 Mon Sep 17 00:00:00 2001
+From: Winter Wang <b55847@freescale.com>
+Date: Sun, 2 Aug 2015 10:29:45 +0800
+Subject: [PATCH 2/2] add my OMZ theme.
+
+---
+ themes/mine.zsh-theme | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 themes/mine.zsh-theme
+
+diff --git a/themes/mine.zsh-theme b/themes/mine.zsh-theme
+new file mode 100644
+index 0000000..3805ef8
+--- /dev/null
++++ b/themes/mine.zsh-theme
+@@ -0,0 +1,7 @@
++local ret_status="%(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>%s)"
++PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
++
++ZSH_THEME_GIT_PROMPT_PREFIX="(%{$fg[red]%}"
++ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
++ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%})%{$fg[yellow]%}*%{$reset_color%}"
++ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+-- 
+1.9.1
+
