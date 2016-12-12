@@ -18,6 +18,6 @@
 	signedoffbycc = no
 	suppresscc = all
 [http]
-	cookiefile = /home/b55847/.gitcookies
+	cookiefile = ~/.gitcookies
 [credential]
 	helper = store

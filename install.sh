@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# Source ~/.zshrc because we need oh-my-zsh variables
-source "$HOME/.zshrc"
 CURRENT_DIR=`pwd`
 
 # Red bold error
@@ -25,7 +22,54 @@ lnif() {
     fi
 }
 
-# use symblink
+CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
+if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
+  error "Zsh is not installed! Please install zsh first!"
+  exit
+fi
+unset CHECK_ZSH_INSTALLED
+
+if [ ! -n "$ZSH" ]; then
+  ZSH=~/.oh-my-zsh
+fi
+
+if [ -d "$ZSH" ]; then
+  message "You already have Oh My Zsh installed."
+  message "You'll need to remove $ZSH if you want to re-install."
+else
+  message "no oh_my_zsh found, install it"
+  git clone git://github.com/robbyrussell/oh-my-zsh.git $ZSH
+
+  # Source ~/.zshrc because we need oh-my-zsh variables
+  source $ZSH/templates/zshrc.zsh-template ~/.zshrc
+
+  # am patches needed
+  cd $ZSH
+  git am $CURRENT_DIR/omz_patches/0001-hack-for-prompt-show-down-due-to-git-status-stuff.patch
+  git am $CURRENT_DIR/omz_patches/0002-add-my-OMZ-theme.patch
+
+  # If folder isn't exist, then make it
+  [ -d $ZSH_CUSTOM/plugins ] || mkdir $ZSH_CUSTOM/plugins
+  # clone plugins needed
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+  # If this user's login shell is not already "zsh", attempt to switch.
+  TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+    # If this platform provides a "chsh" command (not Cygwin), do it, man!
+    if hash chsh >/dev/null 2>&1; then
+      message "Time to change your default shell to zsh!"
+      chsh -s $(grep /zsh$ /etc/shells | tail -1)
+    # Else, suggest the user do so manually.
+    else
+      message "I can't change your shell automatically because this system does not have chsh."
+      message "Please manually change your default shell to zsh!"
+    fi
+  fi
+fi
+
+# use symblink for all configs
 MYZSH_RC="$HOME/.zshrc"
 MYTIG_RC="$HOME/.tigrc"
 MYTIG_THEME="$HOME/.tigrc.theme"
@@ -36,19 +80,6 @@ lnif $CURRENT_DIR/zshrc $MYZSH_RC
 lnif $CURRENT_DIR/tigrc $MYTIG_RC
 lnif $CURRENT_DIR/tigrc.theme $MYTIG_THEME
 lnif $CURRENT_DIR/tmux.conf $MYTMUX_CONF
-lnif $CURRENT_DIR/gitconfig $MYTGIT_CONF
-
-# If folder isn't exist, then make it
-[ -d $ZSH_CUSTOM/plugins ] || mkdir $ZSH_CUSTOM/plugins
-[ -d $ZSH_CUSTOM/themes ] || mkdir $ZSH_CUSTOM/themes
-
-# clone plugins needed
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-# am patches needed
-cd $ZSH
-git am $CURRENT_DIR/omz_patches/0001-hack-for-prompt-show-down-due-to-git-status-stuff.patch
-git am $CURRENT_DIR/omz_patches/0002-add-my-OMZ-theme.patch
+lnif $CURRENT_DIR/gitconfig $MYGIT_CONF
 
 message "Done! Please, reload your terminal."

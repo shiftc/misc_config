@@ -2,6 +2,10 @@
 ## Installation
 
 ### install prerequisites
+zsh:
+```sh
+sudo apt-get install zsh
+```
 
 tig:
 ```sh
@@ -19,6 +23,5 @@ sudo apt-get install tmux
 ```sh
 ./install.sh
 ```
-after oh_my_zsh is installed, enter `exit` to continue install.
 
 ### restart your terminal and enjoy
