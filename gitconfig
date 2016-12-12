@@ -1,0 +1,23 @@
+[user]
+	name = Winter Wang
+	email = wente.wang@nxp.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%cn, %cd%Creset' --abbrev-commit --date=short
+	dt = difftool
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[sendemail]
+	signedoffbycc = no
+	suppresscc = all
+[http]
+	cookiefile = /home/b55847/.gitcookies
+[credential]
+	helper = store
