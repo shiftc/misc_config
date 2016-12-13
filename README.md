@@ -45,3 +45,13 @@ sudo apt-get install tmux
 ```
 
 ### restart your terminal and enjoy
+
+
+### other tools prefered to install
+
+ag:
+```sh
+sudo apt-get install silversearcher-ag
+```
+
+[rg](https://github.com/BurntSushi/ripgrep)
