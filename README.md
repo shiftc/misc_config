@@ -9,6 +9,10 @@ cmdline:
 
 ![cmd](https://github.com/shiftc/misc_config/blob/master/screenshots/cmdline-screen.png?raw=true)
 
+tig:
+
+![tig](https://github.com/shiftc/misc_config/blob/master/screenshots/tig-screen.png?raw=true)
+
 ## Installation
 
 ### install prerequisites
