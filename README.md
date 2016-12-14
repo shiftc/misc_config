@@ -57,6 +57,13 @@ sudo apt-get install silversearcher-ag
 
 [rg](https://github.com/BurntSushi/ripgrep)
 
+### YCM color_coded generator
+[YCM-Generator](https://github.com/rdnetto/YCM-Generator)
+```sh
+config_gen.py PROJECT_DIR # generate .ycm_extra_conf.py
+config_gen.py PROJECT_DIR -F cc # generate .color_coded
+```
+
 ### vim plugins need to compile install
 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe):
 ```sh
