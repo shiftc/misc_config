@@ -47,11 +47,26 @@ sudo apt-get install tmux
 ### restart your terminal and enjoy
 
 
-### other tools prefered to install
+## other tools prefered to install
 
-ag:
+### grep replacement
+[ag](https://github.com/ggreer/the_silver_searcher):
 ```sh
 sudo apt-get install silversearcher-ag
 ```
 
 [rg](https://github.com/BurntSushi/ripgrep)
+
+### vim plugins need to compile install
+[YouCompleteMe](https://github.com/Valloric/YouCompleteMe):
+```sh
+python install.py --clang-completer
+```
+
+[color_coded](https://github.com/jeaye/color_coded):
+```sh
+cd ~/.vim/bundle/color_coded
+mkdir build && cd build
+cmake ..
+make && make install # Compiling with GCC is preferred, ironically
+```
