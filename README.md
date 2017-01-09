@@ -77,3 +77,9 @@ mkdir build && cd build
 cmake ..
 make && make install # Compiling with GCC is preferred, ironically
 ```
+
+### a way to replace left CTRL and TAB
+personally, I prefer relpace left CTRL and TAB, as CTRL used more often in my work env.
+create a binary key `Scancode Map` in `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`
+
+![keyReplacement](https://github.com/shiftc/misc_config/blob/master/screenshots/keyReplacement.png?raw=true)
