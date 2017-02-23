@@ -16,6 +16,9 @@ tig:
 ## Installation
 
 ### install prerequisites
+git:
+config your git first
+
 vim:
 vim 7.4 above prefered, with lua enabled
 
@@ -45,6 +48,7 @@ sudo apt-get install tmux
 ```
 
 ### restart your terminal and enjoy
+remember to config you ~/.gitconfig as you wish
 
 
 ## other tools prefered to install
