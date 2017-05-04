@@ -82,6 +82,12 @@ cmake ..
 make && make install # Compiling with GCC is preferred, ironically
 ```
 
+[fzf](https://github.com/junegunn/fzf):
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
 ### a way to replace left CTRL and TAB
 personally, I prefer relpace left CTRL and TAB, as CTRL used more often in my work env.
 create a binary key `Scancode Map` in `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`
