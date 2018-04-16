@@ -21,4 +21,6 @@ set main-options = -n 1000
 # Optionally, use the old and faster but less acurate graph renderer
 #set main-view-commit-title-graph = v1
 
+set main-view-id-display = yes
+
 source ~/.tigrc.theme
