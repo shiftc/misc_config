@@ -49,7 +49,7 @@ ZSH_THEME=mine
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z vi-mode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git z vi-mode zsh-syntax-highlighting zsh-autosuggestions fzf-zsh fz)
 
 # User configuration
 
